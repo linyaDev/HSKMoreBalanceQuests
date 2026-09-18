@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-	<QP_SettingsCategory>HSK Quests</QP_SettingsCategory>
+	<QP_SettingsCategory>HSK Quests and Events</QP_SettingsCategory>
 	<QP_ModulesSection>— Modules —</QP_ModulesSection>
 	<QP_EnableQuestPatches>Quest patches</QP_EnableQuestPatches>
 	<QP_EnableQuestPatchesTooltip>Tech gates for quests and site parts, quest factions, weapon rewards, lodger caps, wastepacks, no duplicate guest and monument quests.

@@ -1,4 +1,4 @@
-# HSK More Balance: Quests
+# HSK More Balance: Quests and Events
 
 Quest and incident tuning for the Hardcore SK modlist: tech-level gates, faction filters and lodger caps.
 Harmony patches only, plus two settings defs — safe to add to or remove from a save.

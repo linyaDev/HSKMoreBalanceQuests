@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-	<QP_SettingsCategory>Квесты HSK</QP_SettingsCategory>
+	<QP_SettingsCategory>Квесты и события HSK</QP_SettingsCategory>
 	<QP_ModulesSection>— Модули —</QP_ModulesSection>
 	<QP_EnableQuestPatches>Патчи квестов</QP_EnableQuestPatches>
 	<QP_EnableQuestPatchesTooltip>Гейты по техуровню для квестов и площадок, фракции квестов, оружие в наградах, лимиты постояльцев, мешки отходов, запрет повторных квестов на гостей и строение.
