@@ -9,7 +9,9 @@ quest patches in the root namespace `HSKMoreBalanceQuests`, incident patches in 
 or `.EventsEnabled` check, so toggling works without a restart — except `Patch_WastepackCount.PatchCurve()`,
 which edits a def curve once at startup.
 
-## Settings def
+## Settings defs
+
+The mod settings window has just the two module toggles; every threshold lives in the defs.
 
 `Defs/Misc/BalanceSettings.xml` (`BalanceSettingsDef`, defName `HSKMoreBalanceQuests_Settings`).
 Every patch falls back to its in-code defaults when the def is missing.
@@ -17,6 +19,8 @@ Every patch falls back to its in-code defaults when the def is missing.
 - `questMinTechLevel` — quest defName -> minimum player tech level
 - `sitePartMinTechLevel` — SitePartDef defName -> minimum player tech level
 - `mechClusterMinTechLevel` — quest-spawned mech clusters
+- `limitRefugees`, `maxRefugees`, `maxHelpers` — lodger caps
+- `nerfWastepacks`, `wastepackBaseMultiplier`, `wastepack*Mult` — wastepack counts by era
 
 Player tech level comes from Ignorance Is Bliss (`IgnoranceCompat`, reflection, no DLL reference);
 without it, the player faction's tech level is used.
@@ -39,7 +43,7 @@ without it, the player faction's tech level is used.
 | `Patches/Patch_QuestBalance.xml` | Smaller monuments |
 
 `HSKMoreBalanceQuestsMod.cs` / `HSKMoreBalanceQuestsSettings.cs` hold the mod settings window
-(module toggles, lodger caps, wastepack multipliers). `HSKMoreBalanceQuestsInit.cs` runs `PatchAll`.
+(two module toggles only). `HSKMoreBalanceQuestsInit.cs` runs `PatchAll`.
 
 ## Events (`HSKMoreBalanceQuests.Events`)
 

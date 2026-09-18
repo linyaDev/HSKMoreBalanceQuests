@@ -25,7 +25,7 @@ Incidents:
 - Raid Extension surprise events (hostile caravan, lost raider, logging, poaching) pick factions inside the Ignorance Is Bliss tech range, including the case where the faction was set in advance.
 - Hospitality guests: a faction above the player's tech level does not visit, and one far below it does not either. Invitations from the comms console are not limited.
 
-Adds only its own settings defs (Defs/Misc/BalanceSettings.xml and Defs/Misc/EventSettings.xml, thresholds are editable there): safe to add to or remove from an existing save.
+Adds only its own settings defs (Defs/Misc/BalanceSettings.xml and Defs/Misc/EventSettings.xml, all thresholds are editable there; the mod settings window only switches the two modules on and off): safe to add to or remove from an existing save.
 
 [Russian]
 Настройка квестов и событий для сборки Hardcore SK. Оба модуля отключаются по отдельности в настройках мода.
@@ -45,7 +45,7 @@ Adds only its own settings defs (Defs/Misc/BalanceSettings.xml and Defs/Misc/Eve
 - Внезапные события Raid Extension (враждебный караван, заблудившийся рейдер, лесозаготовка, браконьеры) выбирают фракции внутри диапазона техуровня Ignorance Is Bliss, в том числе когда фракция задана заранее.
 - Гости Hospitality: фракция выше техуровня игрока не приходит, сильно ниже — тоже. Приглашение через консоль связи не ограничивается.
 
-Из своих дефов только файлы настроек (Defs/Misc/BalanceSettings.xml и Defs/Misc/EventSettings.xml, пороги правятся там): мод можно безопасно ставить в текущее сохранение и убирать из него.
+Из своих дефов только файлы настроек (Defs/Misc/BalanceSettings.xml и Defs/Misc/EventSettings.xml, все пороги правятся там; в окне настроек мода только две галки на модули): мод можно безопасно ставить в текущее сохранение и убирать из него.
 	</description>
 	<modDependencies>
 		<li>

@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 	<QP_SettingsCategory>Квесты и события HSK</QP_SettingsCategory>
-	<QP_ModulesSection>— Модули —</QP_ModulesSection>
 	<QP_EnableQuestPatches>Патчи квестов</QP_EnableQuestPatches>
 	<QP_EnableQuestPatchesTooltip>Гейты по техуровню для квестов и площадок, фракции квестов, оружие в наградах, лимиты постояльцев, мешки отходов, запрет повторных квестов на гостей и строение.
 Правка кривой мешков применяется при старте игры — её изменение требует перезапуска.</QP_EnableQuestPatchesTooltip>
 	<QP_EnableEventPatches>Патчи событий</QP_EnableEventPatches>
 	<QP_EnableEventPatchesTooltip>Гейты по техуровню для событий и вариантов жуткого присоединившегося, фильтр фракций внезапных событий Raid Extension, фильтр гостей Hospitality.</QP_EnableEventPatchesTooltip>
-	<QP_QuestSection>— Квесты —</QP_QuestSection>
-	<QP_LimitRefugees>Ограничить постояльцев</QP_LimitRefugees>
-	<QP_LimitRefugeesTooltip>Беженцы и попрошайки: количество = колонисты / 2, но не больше значений ниже.\nГости и заключённые: количество по техуровню игрока (неолит 1-2, средневековье 2-4, индустриальный 4-6).</QP_LimitRefugeesTooltip>
-	<QP_MaxRefugees>Максимум беженцев</QP_MaxRefugees>
-	<QP_MaxHelpers>Максимум помощников</QP_MaxHelpers>
-	<QP_NerfWastepacks>Уменьшить мешки отходов</QP_NerfWastepacks>
-	<QP_NerfWastepacksTooltip>Снижает количество мешков отходов в квестах.\nБазовый множитель применяется всегда.\nДополнительный множитель для ранних эпох (Неолит, Средневековье).\nПри Неолите: 50% × 50% = 25% от ванили.</QP_NerfWastepacksTooltip>
-	<QP_WastepackBase>Базовый множитель мешков</QP_WastepackBase>
-	<QP_WastepackNeolithic>Доп. множитель (Неолит)</QP_WastepackNeolithic>
-	<QP_WastepackMedieval>Доп. множитель (Средневековье)</QP_WastepackMedieval>
+	<QP_ThresholdsHint>Пороги и списки (техуровни, лимиты постояльцев, множители мешков) правятся в Defs/Misc/BalanceSettings.xml и Defs/Misc/EventSettings.xml.</QP_ThresholdsHint>
 	<QP_GuestsAlreadyPresent>Квест пропущен — в колонии уже есть гости.</QP_GuestsAlreadyPresent>
 	<QP_MonumentAlreadyActive>Квест пропущен — уже есть активный квест на строение.</QP_MonumentAlreadyActive>
 </LanguageData>

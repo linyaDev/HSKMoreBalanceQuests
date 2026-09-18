@@ -34,8 +34,8 @@ public static class Patch_PrisonerCount
 
     public static void LimitLodgers(Slate slate)
     {
-        var settings = HSKMoreBalanceQuestsMod.Settings;
-        if (settings == null || !settings.limitRefugees || slate == null)
+        var settings = BalanceSettingsDef.Values;
+        if (!settings.limitRefugees || slate == null)
             return;
 
         // Only prisoner and joiner hospitality quests

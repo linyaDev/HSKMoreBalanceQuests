@@ -15,6 +15,18 @@ public class BalanceSettingsDef : Def
     // Минимальный техуровень для мех-кластера из квеста (угроза за монумент и т.п.)
     public TechLevel mechClusterMinTechLevel = TechLevel.Industrial;
 
+    // Ограничение числа постояльцев
+    public bool limitRefugees = true;
+    public int maxRefugees = 4;
+    public int maxHelpers = 2;
+
+    // Мешки отходов в квесте на свалку
+    public bool nerfWastepacks = true;
+    public float wastepackBaseMultiplier = 0.2f;
+    public float wastepackNeolithicMult = 0.05f;
+    public float wastepackMedievalMult = 0.1f;
+    public float wastepackIndustrialMult = 0.5f;
+
     private static BalanceSettingsDef cachedInstance;
 
     public static BalanceSettingsDef Instance
@@ -26,4 +38,9 @@ public class BalanceSettingsDef : Def
             return cachedInstance;
         }
     }
+
+    // Запасные значения на случай отсутствия дефа
+    private static readonly BalanceSettingsDef fallback = new BalanceSettingsDef();
+
+    public static BalanceSettingsDef Values => Instance ?? fallback;
 }

@@ -16,8 +16,8 @@ public static class Patch_WastepackCount
         if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
             return;
 
-        var settings = HSKMoreBalanceQuestsMod.Settings;
-        if (settings == null || !settings.nerfWastepacks)
+        var settings = BalanceSettingsDef.Values;
+        if (!settings.nerfWastepacks)
             return;
 
         var slate = QuestGen.slate;
@@ -38,8 +38,8 @@ public static class Patch_WastepackCount
         if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
             return;
 
-        var settings = HSKMoreBalanceQuestsMod.Settings;
-        if (settings == null || !settings.nerfWastepacks)
+        var settings = BalanceSettingsDef.Values;
+        if (!settings.nerfWastepacks)
             return;
 
         if (originalPoints > 0f)
@@ -49,7 +49,7 @@ public static class Patch_WastepackCount
         }
     }
 
-    private static float GetMultiplier(HSKMoreBalanceQuestsSettings settings)
+    private static float GetMultiplier(BalanceSettingsDef settings)
     {
         float multiplier = settings.wastepackBaseMultiplier;
         var techLevel = Faction.OfPlayer?.def?.techLevel ?? TechLevel.Industrial;

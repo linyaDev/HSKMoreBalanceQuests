@@ -38,5 +38,21 @@
 
 		<!-- Мех-кластер, который квест сбрасывает сам (наказание за монумент и т.п.) -->
 		<mechClusterMinTechLevel>Industrial</mechClusterMinTechLevel>
+
+		<!-- Ограничение числа постояльцев. Беженцы и попрошайки: колонисты / 2,
+		     но не больше maxRefugees (для гостей-помощников Hospitality — maxHelpers).
+		     Гости и заключённые: по техуровню игрока (неолит 1-2, средневековье 2-4,
+		     индустриальный 4-6). -->
+		<limitRefugees>true</limitRefugees>
+		<maxRefugees>4</maxRefugees>
+		<maxHelpers>2</maxHelpers>
+
+		<!-- Мешки отходов в квесте на свалку. Базовый множитель применяется всегда,
+		     множитель эпохи — сверху (неолит: 0.2 * 0.05). -->
+		<nerfWastepacks>true</nerfWastepacks>
+		<wastepackBaseMultiplier>0.2</wastepackBaseMultiplier>
+		<wastepackNeolithicMult>0.05</wastepackNeolithicMult>
+		<wastepackMedievalMult>0.1</wastepackMedievalMult>
+		<wastepackIndustrialMult>0.5</wastepackIndustrialMult>
 	</HSKMoreBalanceQuests.BalanceSettingsDef>
 </Defs>

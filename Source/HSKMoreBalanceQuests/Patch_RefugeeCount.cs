@@ -16,8 +16,8 @@ public static class Patch_RefugeeCount
             return;
 
         Log.Message("[HSKMoreBalanceQuests] Patch_RefugeeCount fired");
-        var settings = HSKMoreBalanceQuestsMod.Settings;
-        if (settings == null || !settings.limitRefugees)
+        var settings = BalanceSettingsDef.Values;
+        if (!settings.limitRefugees)
             return;
 
         bool isHospitality = new StackTrace().ToString().Contains("Hospitality_Refugee");
