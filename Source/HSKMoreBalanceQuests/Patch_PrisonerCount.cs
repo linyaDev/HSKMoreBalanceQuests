@@ -26,6 +26,9 @@ public static class Patch_PrisonerCount
 
     public static void Postfix()
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return;
+
         LimitLodgers(QuestGen.slate);
     }
 
@@ -66,6 +69,9 @@ public static class Patch_PrisonerCountFromPoints
 {
     public static void Postfix(QuestNode_EvaluateSimpleCurve __instance)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return;
+
         var slate = QuestGen.slate;
         if (slate == null || __instance.storeAs.GetValue(slate) != "lodgersCount")
             return;

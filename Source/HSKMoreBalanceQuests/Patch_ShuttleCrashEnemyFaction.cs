@@ -15,6 +15,9 @@ public static class Patch_ShuttleCrashEnemyFaction
 {
     public static bool Prefix(ref Faction enemyFaction, ref bool __result)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return true;
+
         __result = Find.FactionManager.AllFactionsVisible
             .Where(f => f.HostileTo(Faction.OfEmpire) && f.HostileTo(Faction.OfPlayer) && IgnoranceCompat.FactionIsEligible(f))
             .TryRandomElement(out enemyFaction);

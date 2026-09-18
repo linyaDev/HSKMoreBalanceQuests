@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 	<QP_SettingsCategory>HSK Quests</QP_SettingsCategory>
+	<QP_ModulesSection>— Modules —</QP_ModulesSection>
+	<QP_EnableQuestPatches>Quest patches</QP_EnableQuestPatches>
+	<QP_EnableQuestPatchesTooltip>Tech gates for quests and site parts, quest factions, weapon rewards, lodger caps, wastepacks, no duplicate guest and monument quests.
+The wastepack curve fix is applied at startup and needs a restart to change.</QP_EnableQuestPatchesTooltip>
+	<QP_EnableEventPatches>Event patches</QP_EnableEventPatches>
+	<QP_EnableEventPatchesTooltip>Tech gates for incidents and creepjoiner variants, faction filter for Raid Extension surprise events, Hospitality guest filter.</QP_EnableEventPatchesTooltip>
 	<QP_QuestSection>— Quests —</QP_QuestSection>
 	<QP_LimitRefugees>Limit lodgers</QP_LimitRefugees>
 	<QP_LimitRefugeesTooltip>Refugees and beggars: count = colonists / 2, capped by the values below.\nHospitality guests and prisoners: count by player tech level (Neolithic 1-2, Medieval 2-4, Industrial 4-6).</QP_LimitRefugeesTooltip>

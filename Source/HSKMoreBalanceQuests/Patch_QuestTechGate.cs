@@ -33,6 +33,9 @@ public static class Patch_QuestTechGate
 
     public static bool Prefix(QuestScriptDef __instance, ref bool __result)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return true;
+
         if (!MinTechLevel.TryGetValue(__instance.defName, out TechLevel minTech))
             return true;
 

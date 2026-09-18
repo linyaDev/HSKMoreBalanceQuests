@@ -19,6 +19,9 @@ public static class Patch_NoDoubleMonument
 
     public static bool Prefix(QuestScriptDef __instance, ref bool __result)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return true;
+
         if (!monumentQuests.Contains(__instance.defName))
             return true;
 

@@ -13,6 +13,9 @@ public static class Patch_WastepackCount
 
     public static void Prefix()
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return;
+
         var settings = HSKMoreBalanceQuestsMod.Settings;
         if (settings == null || !settings.nerfWastepacks)
             return;
@@ -32,6 +35,9 @@ public static class Patch_WastepackCount
 
     public static void Postfix()
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return;
+
         var settings = HSKMoreBalanceQuestsMod.Settings;
         if (settings == null || !settings.nerfWastepacks)
             return;

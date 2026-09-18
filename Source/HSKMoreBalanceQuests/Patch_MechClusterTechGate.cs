@@ -20,6 +20,9 @@ public static class Patch_MechClusterTechGate
 
     public static bool Prefix(ref bool __result)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return true;
+
         TechLevel playerTech = IgnoranceCompat.PlayerTechLevel;
         if (playerTech == TechLevel.Undefined || playerTech >= MinTechLevel)
             return true;

@@ -15,6 +15,9 @@ public static class Patch_QuestFactionTech
 {
     public static void Postfix(QuestNode_GetFaction __instance, Faction faction, Slate slate, ref bool __result)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return;
+
         if (!__result || faction == null || faction.IsPlayer)
             return;
 

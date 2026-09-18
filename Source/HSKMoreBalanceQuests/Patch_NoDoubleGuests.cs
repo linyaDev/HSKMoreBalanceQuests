@@ -18,6 +18,9 @@ public static class Patch_NoDoubleGuests
 
     public static bool Prefix(QuestScriptDef __instance, ref bool __result)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return true;
+
         Log.Message("[HSKMoreBalanceQuests] Patch_NoDoubleGuests fired");
         if (!lodgerQuests.Contains(__instance.defName))
             return true;
@@ -47,6 +50,9 @@ public static class Patch_NoDoubleGuests_Beggars
 {
     public static bool Prefix(ref bool __result)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return true;
+
         Log.Message("[HSKMoreBalanceQuests] Patch_NoDoubleGuests_Beggars fired");
         if (Patch_NoDoubleGuests.HasLodgersOnAnyMap())
         {
@@ -63,6 +69,9 @@ public static class Patch_NoDoubleGuests_Refugee
 {
     public static bool Prefix(ref bool __result)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return true;
+
         Log.Message("[HSKMoreBalanceQuests] Patch_NoDoubleGuests_Refugee fired");
         if (Patch_NoDoubleGuests.HasLodgersOnAnyMap())
         {

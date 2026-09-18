@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 	<QP_SettingsCategory>Квесты HSK</QP_SettingsCategory>
+	<QP_ModulesSection>— Модули —</QP_ModulesSection>
+	<QP_EnableQuestPatches>Патчи квестов</QP_EnableQuestPatches>
+	<QP_EnableQuestPatchesTooltip>Гейты по техуровню для квестов и площадок, фракции квестов, оружие в наградах, лимиты постояльцев, мешки отходов, запрет повторных квестов на гостей и строение.
+Правка кривой мешков применяется при старте игры — её изменение требует перезапуска.</QP_EnableQuestPatchesTooltip>
+	<QP_EnableEventPatches>Патчи событий</QP_EnableEventPatches>
+	<QP_EnableEventPatchesTooltip>Гейты по техуровню для событий и вариантов жуткого присоединившегося, фильтр фракций внезапных событий Raid Extension, фильтр гостей Hospitality.</QP_EnableEventPatchesTooltip>
 	<QP_QuestSection>— Квесты —</QP_QuestSection>
 	<QP_LimitRefugees>Ограничить постояльцев</QP_LimitRefugees>
 	<QP_LimitRefugeesTooltip>Беженцы и попрошайки: количество = колонисты / 2, но не больше значений ниже.\nГости и заключённые: количество по техуровню игрока (неолит 1-2, средневековье 2-4, индустриальный 4-6).</QP_LimitRefugeesTooltip>

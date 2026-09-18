@@ -13,6 +13,12 @@ public class HSKMoreBalanceQuestsMod : Mod
         Settings = GetSettings<HSKMoreBalanceQuestsSettings>();
     }
 
+    // Модуль квестов включён (до загрузки настроек считаем, что да)
+    public static bool QuestsEnabled => Settings == null || Settings.enableQuestPatches;
+
+    // Модуль событий включён
+    public static bool EventsEnabled => Settings == null || Settings.enableEventPatches;
+
     public override void DoSettingsWindowContents(Rect inRect)
     {
         Rect scrollArea = new Rect(0f, 0f, inRect.width, inRect.height);
@@ -22,6 +28,11 @@ public class HSKMoreBalanceQuestsMod : Mod
         var list = new Listing_Standard();
         list.ColumnWidth = viewRect.width;
         list.Begin(viewRect);
+
+        // === Modules ===
+        SectionHeader(list, "QP_ModulesSection".Translate());
+        list.CheckboxLabeled("QP_EnableQuestPatches".Translate(), ref Settings.enableQuestPatches, "QP_EnableQuestPatchesTooltip".Translate());
+        list.CheckboxLabeled("QP_EnableEventPatches".Translate(), ref Settings.enableEventPatches, "QP_EnableEventPatchesTooltip".Translate());
 
         // === Quests ===
         SectionHeader(list, "QP_QuestSection".Translate());

@@ -18,6 +18,9 @@ public static class Patch_RewardWeaponTech
 
     public static void Prefix(ThingSetMaker __instance, ref ThingSetMakerParams parms)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return;
+
         if (__instance != ThingSetMakerDefOf.Reward_ItemsStandard?.root)
             return;
 

@@ -1,7 +1,13 @@
 # HSK More Balance: Quests
 
-Quest tuning for the Hardcore SK modlist: tech-level gates, faction filters and lodger caps.
-Harmony patches only, plus one settings def — safe to add to or remove from a save.
+Quest and incident tuning for the Hardcore SK modlist: tech-level gates, faction filters and lodger caps.
+Harmony patches only, plus two settings defs — safe to add to or remove from a save.
+
+Two modules, each switchable in the mod settings (`enableQuestPatches` / `enableEventPatches`):
+quest patches in the root namespace `HSKMoreBalanceQuests`, incident patches in `HSKMoreBalanceQuests.Events`
+(`Source/HSKMoreBalanceQuests/Events/`). Every patch entry point starts with a `HSKMoreBalanceQuestsMod.QuestsEnabled`
+or `.EventsEnabled` check, so toggling works without a restart — except `Patch_WastepackCount.PatchCurve()`,
+which edits a def curve once at startup.
 
 ## Settings def
 
@@ -33,7 +39,23 @@ without it, the player faction's tech level is used.
 | `Patches/Patch_QuestBalance.xml` | Smaller monuments |
 
 `HSKMoreBalanceQuestsMod.cs` / `HSKMoreBalanceQuestsSettings.cs` hold the mod settings window
-(lodger caps, wastepack multipliers). `HSKMoreBalanceQuestsInit.cs` runs `PatchAll`.
+(module toggles, lodger caps, wastepack multipliers). `HSKMoreBalanceQuestsInit.cs` runs `PatchAll`.
+
+## Events (`HSKMoreBalanceQuests.Events`)
+
+Settings def: `Defs/Misc/EventSettings.xml` (`EventSettingsDef`, defName `HSKMoreBalanceQuests_EventSettings`) —
+`incidentMinTechLevel`, `creepJoinerFormMinTechLevel`, `guestMaxTechAhead` / `guestMaxTechBehind`,
+with in-code fallbacks.
+
+| File | What it does |
+|---|---|
+| `Events/IncidentTechGate.cs` | Postfix on `IncidentWorker.CanFireNow` — gated incidents never fire |
+| `Events/CreepJoinerTechGate.cs` | Prefixes `CreepJoinerUtility.GetCreepjoinerSpecifics` / `GenerateAndSpawn` — picks a random allowed form by weight |
+| `Events/RaidExtensionTechFilter.cs` | Postfix on Raid Extension's own `FactionCanBeGroupSource`, plus a prefix clearing a preset `parms.faction` |
+| `Events/GuestTechFilter.cs` | Filters Hospitality visit planning and the storyteller path; comms-console invites are exempt |
+
+These classes apply their own Harmony patches from `[StaticConstructorOnStartup]` and no-op when the mod
+they hook into is absent. Merged in from the standalone HSKMoreBalanceEvents mod, which no longer exists.
 
 ## Disabled
 

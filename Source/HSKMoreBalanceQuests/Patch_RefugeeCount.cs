@@ -12,6 +12,9 @@ public static class Patch_RefugeeCount
 {
     public static void Postfix(ref int __result, Map map)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return;
+
         Log.Message("[HSKMoreBalanceQuests] Patch_RefugeeCount fired");
         var settings = HSKMoreBalanceQuestsMod.Settings;
         if (settings == null || !settings.limitRefugees)

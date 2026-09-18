@@ -50,6 +50,9 @@ public static class Patch_SitePartTechGate
 
     public static void Postfix(SitePartWorker __instance, ref bool __result)
     {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
+            return;
+
         if (!__result)
             return;
 
