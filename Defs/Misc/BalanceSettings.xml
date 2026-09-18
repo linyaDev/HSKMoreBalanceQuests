@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<HSKMoreBalanceQuests.BalanceSettingsDef>
+		<defName>HSKMoreBalanceQuests_Settings</defName>
+		<label>HSKMoreBalanceQuests quest settings</label>
+
+		<!-- Квест (defName) -> минимальный техуровень игрока. Уровень берётся из
+		     Ignorance Is Bliss, без него — техуровень фракции игрока. Ниже порога
+		     квест не выдаётся ни рассказчиком, ни событием, ни из dev-меню. -->
+		<questMinTechLevel>
+			<li><key>ThreatReward_MechPods_MiscReward</key><value>Industrial</value></li>
+			<li><key>ProblemCauser</key><value>Industrial</value></li>
+			<li><key>GravshipWreckage</key><value>Industrial</value></li>
+			<li><key>OpportunitySite_AncientComplex</key><value>Industrial</value></li>
+			<li><key>OpportunitySite_AncientComplex_Giver</key><value>Industrial</value></li>
+			<li><key>OpportunitySite_AncientMercenaries</key><value>Industrial</value></li>
+			<li><key>Mission_BanditCamp</key><value>Industrial</value></li>
+			<li><key>ThreatReward_SiteThreat_ItemPod</key><value>Industrial</value></li>
+			<li><key>ThreatReward_SiteThreat_Joiner</key><value>Medieval</value></li>
+			<li><key>ThreatReward_Infestation_ItemPod</key><value>Medieval</value></li>
+		</questMinTechLevel>
+
+		<!-- Часть площадки (SitePartDef defName) -> минимальный техуровень игрока.
+		     Ниже порога такая охрана или угроза не выбирается, квест берёт другую. -->
+		<sitePartMinTechLevel>
+			<li><key>SleepingMechanoids</key><value>Industrial</value></li>
+			<li><key>MechCluster</key><value>Industrial</value></li>
+			<li><key>Turrets</key><value>Industrial</value></li>
+			<li><key>EMIDynamo</key><value>Industrial</value></li>
+			<li><key>SunBlocker</key><value>Industrial</value></li>
+			<li><key>SmokeSpewer</key><value>Industrial</value></li>
+			<li><key>ToxicSpewer</key><value>Industrial</value></li>
+			<li><key>WeatherController</key><value>Industrial</value></li>
+			<li><key>ClimateAdjuster</key><value>Industrial</value></li>
+			<li><key>PsychicDroner</key><value>Industrial</value></li>
+			<li><key>PsychicSuppressor</key><value>Industrial</value></li>
+		</sitePartMinTechLevel>
+
+		<!-- Мех-кластер, который квест сбрасывает сам (наказание за монумент и т.п.) -->
+		<mechClusterMinTechLevel>Industrial</mechClusterMinTechLevel>
+	</HSKMoreBalanceQuests.BalanceSettingsDef>
+</Defs>

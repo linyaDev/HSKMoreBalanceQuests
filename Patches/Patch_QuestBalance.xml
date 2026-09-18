@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/QuestScriptDef[defName="BuildMonumentWorker"]/root/nodes/li[@Class="QuestNode_GetMonumentSketch"]/pointsPerArea</xpath>
+    <value>
+      <pointsPerArea>40</pointsPerArea>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/QuestScriptDef[defName="BuildMonumentWorker"]/root/nodes/li[@Class="QuestNode_GetLargestClearArea"]/max</xpath>
+    <value>
+      <max>11</max>
+    </value>
+  </Operation>
+</Patch>

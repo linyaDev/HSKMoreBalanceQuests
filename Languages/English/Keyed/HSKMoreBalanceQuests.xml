@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<QP_SettingsCategory>HSK Quests</QP_SettingsCategory>
+	<QP_QuestSection>— Quests —</QP_QuestSection>
+	<QP_LimitRefugees>Limit lodgers</QP_LimitRefugees>
+	<QP_LimitRefugeesTooltip>Refugees and beggars: count = colonists / 2, capped by the values below.\nHospitality guests and prisoners: count by player tech level (Neolithic 1-2, Medieval 2-4, Industrial 4-6).</QP_LimitRefugeesTooltip>
+	<QP_MaxRefugees>Max refugees</QP_MaxRefugees>
+	<QP_MaxHelpers>Max contract helpers</QP_MaxHelpers>
+	<QP_NerfWastepacks>Reduce wastepacks</QP_NerfWastepacks>
+	<QP_NerfWastepacksTooltip>Reduces wastepack count in quests.\nBase multiplier always applies.\nExtra multiplier for early eras (Neolithic, Medieval).\nNeolithic: 50% × 50% = 25% of vanilla.</QP_NerfWastepacksTooltip>
+	<QP_WastepackBase>Base wastepack multiplier</QP_WastepackBase>
+	<QP_WastepackNeolithic>Extra multiplier (Neolithic)</QP_WastepackNeolithic>
+	<QP_WastepackMedieval>Extra multiplier (Medieval)</QP_WastepackMedieval>
+	<QP_GuestsAlreadyPresent>Quest skipped — guests already present in colony.</QP_GuestsAlreadyPresent>
+	<QP_MonumentAlreadyActive>Quest skipped — monument quest already in progress.</QP_MonumentAlreadyActive>
+</LanguageData>

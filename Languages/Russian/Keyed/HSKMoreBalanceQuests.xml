@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<QP_SettingsCategory>Квесты HSK</QP_SettingsCategory>
+	<QP_QuestSection>— Квесты —</QP_QuestSection>
+	<QP_LimitRefugees>Ограничить постояльцев</QP_LimitRefugees>
+	<QP_LimitRefugeesTooltip>Беженцы и попрошайки: количество = колонисты / 2, но не больше значений ниже.\nГости и заключённые: количество по техуровню игрока (неолит 1-2, средневековье 2-4, индустриальный 4-6).</QP_LimitRefugeesTooltip>
+	<QP_MaxRefugees>Максимум беженцев</QP_MaxRefugees>
+	<QP_MaxHelpers>Максимум помощников</QP_MaxHelpers>
+	<QP_NerfWastepacks>Уменьшить мешки отходов</QP_NerfWastepacks>
+	<QP_NerfWastepacksTooltip>Снижает количество мешков отходов в квестах.\nБазовый множитель применяется всегда.\nДополнительный множитель для ранних эпох (Неолит, Средневековье).\nПри Неолите: 50% × 50% = 25% от ванили.</QP_NerfWastepacksTooltip>
+	<QP_WastepackBase>Базовый множитель мешков</QP_WastepackBase>
+	<QP_WastepackNeolithic>Доп. множитель (Неолит)</QP_WastepackNeolithic>
+	<QP_WastepackMedieval>Доп. множитель (Средневековье)</QP_WastepackMedieval>
+	<QP_GuestsAlreadyPresent>Квест пропущен — в колонии уже есть гости.</QP_GuestsAlreadyPresent>
+	<QP_MonumentAlreadyActive>Квест пропущен — уже есть активный квест на строение.</QP_MonumentAlreadyActive>
+</LanguageData>
