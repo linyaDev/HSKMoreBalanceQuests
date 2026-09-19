@@ -20,6 +20,8 @@
 		     приходят остальные. Выбор в dev-меню не ограничивается. -->
 		<creepJoinerFormMinTechLevel>
 			<li><key>LoneGenius</key><value>Industrial</value></li>
+			<!-- Толстокожий незнакомец — не раньше индустриальной эпохи -->
+			<li><key>LeatheryStranger</key><value>Industrial</value></li>
 		</creepJoinerFormMinTechLevel>
 
 		<!-- Гости Hospitality по техуровню (игрок — как выше, не ниже неолита):
