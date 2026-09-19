@@ -33,6 +33,7 @@ namespace HSKMoreBalanceQuests.Events
         public static readonly Dictionary<string, TechLevel> defaultCreepJoinerFormMinTechLevel = new Dictionary<string, TechLevel>
         {
             { "LoneGenius", TechLevel.Industrial },
+            { "LeatheryStranger", TechLevel.Medieval },
         };
 
         public const int defaultGuestMaxTechAhead = 0;
