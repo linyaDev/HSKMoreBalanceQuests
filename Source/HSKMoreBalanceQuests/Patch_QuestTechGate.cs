@@ -16,7 +16,7 @@ public static class Patch_QuestTechGate
 {
     public static readonly Dictionary<string, TechLevel> defaultMinTechLevel = new Dictionary<string, TechLevel>
     {
-        { "ThreatReward_MechPods_MiscReward", TechLevel.Industrial },
+        { "ThreatReward_MechPods_MiscReward", TechLevel.Spacer },
         { "ProblemCauser", TechLevel.Industrial },
         { "GravshipWreckage", TechLevel.Industrial },
         { "OpportunitySite_AncientComplex", TechLevel.Industrial },
