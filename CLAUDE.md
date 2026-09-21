@@ -41,6 +41,7 @@ without it, the player faction's tech level is used.
 | `Patch_NoDoubleMonument.cs` | No second monument quest while one is active |
 | `Patch_WastepackCount.cs` | Fewer wastepacks in `PollutionDump`, by colony tech level |
 | `Patches/Patch_QuestBalance.xml` | Smaller monuments |
+| `Patches/Patch_QuestEnemyFactions.xml` | Drops `mustBePermanentEnemy` from `QuestNode_GetFaction` in raid/joiner/hospitality quests, so any hostile faction can be the enemy (static XML, not toggled by module settings) |
 
 `HSKMoreBalanceQuestsMod.cs` / `HSKMoreBalanceQuestsSettings.cs` hold the mod settings window
 (two module toggles only). `HSKMoreBalanceQuestsInit.cs` runs `PatchAll`.
