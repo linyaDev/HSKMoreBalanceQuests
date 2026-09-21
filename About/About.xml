@@ -18,9 +18,10 @@ Quests:
 - Lodger count by tech level: Neolithic 1-2, Medieval 2-4, Industrial 4-6. Refugees and beggars are limited by colony size.
 - No duplicate guest or monument quests while one is already running.
 - Fewer wastepacks in the pollution dump quest, scaled by colony tech level.
+- Incompatible with Simple Monument Quest. If it is enabled anyway, a monument quest rewards a single log or mindscrew.
 
 Incidents:
-- Incidents listed in the settings def are not fired below a minimum player tech level: endless night, ice age, mechanoid terraformer.
+- Incidents listed in the settings def are not fired below a minimum player tech level: endless night, ice age, mechanoid terraformer, defoliator and psychic emanator ship crashes.
 - Creepjoiner variants (Anomaly) obey the same kind of gate: the lone genius does not show up below the Industrial level, other variants come instead.
 - Raid Extension surprise events (hostile caravan, lost raider, logging, poaching) pick factions inside the Ignorance Is Bliss tech range, including the case where the faction was set in advance.
 - Hospitality guests: a faction above the player's tech level does not visit, and one far below it does not either. Invitations from the comms console are not limited.
@@ -38,9 +39,10 @@ Adds only its own settings defs (Defs/Misc/BalanceSettings.xml and Defs/Misc/Eve
 - Число постояльцев по техуровню: неолит 1-2, средневековье 2-4, индустриальный 4-6. Беженцы и попрошайки ограничены размером колонии.
 - Повторные квесты на гостей и монумент не выдаются, пока идёт предыдущий.
 - Меньше мешков отходов в квесте на свалку, с учётом техуровня колонии.
+- Несовместим с Simple Monument Quest. Если его всё же включили, за квест на монумент даётся одно бревно или один мозгорез.
 
 События:
-- События из списка настроек не запускаются ниже заданного техуровня игрока: бесконечная ночь, ледниковый период, терраформер механоидов.
+- События из списка настроек не запускаются ниже заданного техуровня игрока: бесконечная ночь, ледниковый период, терраформер механоидов, падение кораблей-дефолиатора и психоизлучателя.
 - Варианты жуткого присоединившегося (Anomaly) гейтятся так же: одинокий гений не приходит ниже индустриального уровня, вместо него выбираются другие варианты.
 - Внезапные события Raid Extension (враждебный караван, заблудившийся рейдер, лесозаготовка, браконьеры) выбирают фракции внутри диапазона техуровня Ignorance Is Bliss, в том числе когда фракция задана заранее.
 - Гости Hospitality: фракция выше техуровня игрока не приходит, сильно ниже — тоже. Приглашение через консоль связи не ограничивается.
@@ -53,11 +55,15 @@ Adds only its own settings defs (Defs/Misc/BalanceSettings.xml and Defs/Misc/Eve
 			<displayName>Harmony</displayName>
 		</li>
 	</modDependencies>
+	<incompatibleWith>
+		<li>ZuoYao.SimpleMonumentQuest</li>
+	</incompatibleWith>
 	<loadAfter>
 		<li>brrainz.harmony</li>
 		<li>Ludeon.RimWorld</li>
 		<li>dame.ignorance</li>
 		<li>Orion.Hospitality</li>
 		<li>sr.modrimworld.raidextension</li>
+		<li>zuoyao.simplemonumentquest</li>
 	</loadAfter>
 </ModMetaData>
