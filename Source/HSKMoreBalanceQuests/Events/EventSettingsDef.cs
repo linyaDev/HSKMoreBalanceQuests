@@ -28,6 +28,8 @@ namespace HSKMoreBalanceQuests.Events
             { "LongNight", TechLevel.Industrial },
             { "IceAge", TechLevel.Industrial },
             { "MechanoidTerraformerIncident", TechLevel.Spacer },
+            { "DefoliatorShipPartCrash", TechLevel.Spacer },
+            { "PsychicEmanatorShipPartCrash", TechLevel.Spacer },
         };
 
         public static readonly Dictionary<string, TechLevel> defaultCreepJoinerFormMinTechLevel = new Dictionary<string, TechLevel>

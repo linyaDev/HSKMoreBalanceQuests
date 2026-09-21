@@ -13,6 +13,9 @@
 			<li><key>IceAge</key><value>Industrial</value></li>
 			<!-- Терраформер механоидов: ультратех-постройка с погодным контроллером -->
 			<li><key>MechanoidTerraformerIncident</key><value>Spacer</value></li>
+			<!-- Корабли механоидов: дефолиатор убивает растения вокруг, психоизлучатель давит психикой; ультратех-угроза -->
+			<li><key>DefoliatorShipPartCrash</key><value>Spacer</value></li>
+			<li><key>PsychicEmanatorShipPartCrash</key><value>Spacer</value></li>
 		</incidentMinTechLevel>
 
 		<!-- Вариант жуткого присоединившегося (Anomaly, CreepJoinerFormKindDef defName)
