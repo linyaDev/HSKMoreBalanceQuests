@@ -31,3 +31,23 @@ public static class Patch_MechClusterTechGate
         return false;
     }
 }
+
+// Hospitality_Util_Worker (lodger quests) has mech cluster threat branches built with
+// QuestNode_CreateIncidents rather than QuestNode_SpawnMechCluster. Same threshold and the same
+// fallback to the raid branches through QuestNode_RandomNode.
+[HarmonyPatch(typeof(QuestNode_CreateIncidents), "TestRunInt")]
+public static class Patch_MechClusterIncidentTechGate
+{
+    public static bool Prefix(QuestNode_CreateIncidents __instance, Slate slate, ref bool __result)
+    {
+        if (!HSKMoreBalanceQuestsMod.QuestsEnabled || __instance.incidentDef.GetValue(slate) != IncidentDefOf.MechCluster)
+            return true;
+
+        TechLevel playerTech = IgnoranceCompat.PlayerTechLevel;
+        if (playerTech == TechLevel.Undefined || playerTech >= Patch_MechClusterTechGate.MinTechLevel)
+            return true;
+
+        __result = false;
+        return false;
+    }
+}

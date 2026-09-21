@@ -31,7 +31,7 @@ without it, the player faction's tech level is used.
 |---|---|
 | `Patch_QuestTechGate.cs` | Blocks gated quests in `QuestScriptDef.CanRun` |
 | `Patch_SitePartTechGate.cs` | Blocks gated site parts in `SitePartWorker.IsAvailable` (base + overrides) |
-| `Patch_MechClusterTechGate.cs` | Fails `QuestNode_SpawnMechCluster.TestRunInt` below the threshold |
+| `Patch_MechClusterTechGate.cs` | Fails `QuestNode_SpawnMechCluster.TestRunInt` and `QuestNode_CreateIncidents.TestRunInt` (MechCluster incident, hospitality lodger quests) below the threshold |
 | `Patch_QuestFactionTech.cs` | `QuestNode_GetFaction` picks must pass the IiB tech range |
 | `Patch_ShuttleCrashEnemyFaction.cs` | Same for `ShuttleCrash_Rescue`, which picks its enemy in C# |
 | `Patch_RewardWeaponTech.cs` | Quest item rewards only offer weapons one tech level above the player |
