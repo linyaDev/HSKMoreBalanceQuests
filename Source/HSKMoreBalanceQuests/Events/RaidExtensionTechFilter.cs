@@ -9,21 +9,21 @@ namespace HSKMoreBalanceQuests.Events
     {
         private static readonly string[] workerTypeNames =
         {
-            "SR.ModRimworld.RaidExtension.IncidentWorkerHostileTraderCaravanPassing",
-            "SR.ModRimworld.RaidExtension.IncidentWorkerHostileTraveler",
-            "SR.ModRimworld.RaidExtension.IncidentWorkerLogging",
-            "SR.ModRimworld.RaidExtension.IncidentWorkerPoaching",
+            "SR.ModRimWorld.RaidExtension.IncidentWorkerHostileTraderCaravanPassing",
+            "SR.ModRimWorld.RaidExtension.IncidentWorkerHostileTraveler",
+            "SR.ModRimWorld.RaidExtension.IncidentWorkerLogging",
+            "SR.ModRimWorld.RaidExtension.IncidentWorkerPoaching",
         };
 
         private static readonly string[] presetFactionResetTypeNames =
         {
-            "SR.ModRimworld.RaidExtension.IncidentWorkerHostileTraderCaravanPassing",
-            "SR.ModRimworld.RaidExtension.IncidentWorkerHostileTraveler",
+            "SR.ModRimWorld.RaidExtension.IncidentWorkerHostileTraderCaravanPassing",
+            "SR.ModRimWorld.RaidExtension.IncidentWorkerHostileTraveler",
         };
 
         static RaidExtensionTechFilter()
         {
-            if (AccessTools.TypeByName("SR.ModRimworld.RaidExtension.IncidentWorkerHostileTraderCaravanPassing") == null)
+            if (AccessTools.TypeByName("SR.ModRimWorld.RaidExtension.IncidentWorkerHostileTraderCaravanPassing") == null)
                 return;
 
             var harmony = new Harmony("linya.hskmorebalancequests.raidextensiontechfilter");
@@ -42,14 +42,13 @@ namespace HSKMoreBalanceQuests.Events
                     postfix: new HarmonyMethod(typeof(RaidExtensionTechFilter), nameof(FactionSourcePostfix)));
                 patched++;
 
-                if (System.Array.IndexOf(presetFactionResetTypeNames, typeName) < 0)
-                    continue;
-
+                bool resetsPresetFaction = System.Array.IndexOf(presetFactionResetTypeNames, typeName) >= 0;
                 var tryExec = AccessTools.DeclaredMethod(type, "TryExecuteWorker");
                 if (tryExec != null)
                     harmony.Patch(tryExec,
-                        prefix: new HarmonyMethod(typeof(RaidExtensionTechFilter), nameof(TryExecutePrefix)));
-                else
+                        prefix: resetsPresetFaction ? new HarmonyMethod(typeof(RaidExtensionTechFilter), nameof(TryExecutePrefix)) : null,
+                        postfix: new HarmonyMethod(typeof(RaidExtensionTechFilter), nameof(TryExecutePostfix)));
+                else if (resetsPresetFaction)
                     Log.Warning($"[HSKMoreBalanceQuests] RaidExtensionTechFilter: не найден TryExecuteWorker у {typeName}");
             }
 
@@ -75,7 +74,23 @@ namespace HSKMoreBalanceQuests.Events
             if (f == null || IgnoranceCompat.FactionIsEligible(f))
                 return;
 
+            Log.Message($"[HSKMoreBalanceQuests] RaidExtension: preset faction {Describe(f)} is outside the tech range, cleared");
             parms.faction = null;
+        }
+
+        public static void TryExecutePostfix(IncidentWorker __instance, IncidentParms parms, bool __result)
+        {
+            if (!HSKMoreBalanceQuestsMod.EventsEnabled)
+                return;
+
+            var f = parms?.faction;
+            Log.Message($"[HSKMoreBalanceQuests] RaidExtension {__instance.def?.defName} ({__instance.GetType().Name}) fired={__result} " +
+                        $"playerTech={IgnoranceCompat.PlayerTechLevel} faction={Describe(f)} iibEligible={IgnoranceCompat.FactionIsEligible(f)}");
+        }
+
+        private static string Describe(Faction f)
+        {
+            return f == null ? "none" : $"{f.Name} [{f.def.defName}, {f.def.techLevel}, {f.PlayerRelationKind}]";
         }
     }
 }
