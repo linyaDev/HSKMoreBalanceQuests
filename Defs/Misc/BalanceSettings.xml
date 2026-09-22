@@ -9,7 +9,7 @@
 		     квест не выдаётся ни рассказчиком, ни событием, ни из dev-меню. -->
 		<questMinTechLevel>
 			<li><key>ThreatReward_MechPods_MiscReward</key><value>Spacer</value></li>
-			<li><key>ProblemCauser</key><value>Industrial</value></li>
+			<li><key>ProblemCauser</key><value>Spacer</value></li>
 			<li><key>GravshipWreckage</key><value>Industrial</value></li>
 			<li><key>OpportunitySite_AncientComplex</key><value>Industrial</value></li>
 			<li><key>OpportunitySite_AncientComplex_Giver</key><value>Industrial</value></li>
