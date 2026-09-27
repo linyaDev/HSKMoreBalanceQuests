@@ -59,7 +59,7 @@ with in-code fallbacks.
 | `Events/CreepJoinerTechGate.cs` | Prefixes `CreepJoinerUtility.GetCreepjoinerSpecifics` / `GenerateAndSpawn` — picks a random allowed form by weight |
 | `Events/RaidExtensionTechFilter.cs` | Postfix on Raid Extension's own `FactionCanBeGroupSource`, plus a prefix clearing a preset `parms.faction` |
 | `Events/GuestTechFilter.cs` | Filters Hospitality visit planning and the storyteller path; comms-console invites are exempt |
-| `Events/EnemyShipFactionTechFilter.cs` | Core_SK's `EnemyShip` incident ("вражеский десант"): faction pick in `ChooseFaction` must pass the IiB tech range; no faction in range — the incident does not fire |
+| `Events/CoreSKRaidFactionTechFilter.cs` | Core_SK's `EnemyShip` ("вражеский десант") and `PortalRaid` incidents: faction pick in `ChooseFaction` must pass the IiB tech range; no faction in range — the incident does not fire |
 
 These classes apply their own Harmony patches from `[StaticConstructorOnStartup]` and no-op when the mod
 they hook into is absent. Merged in from the standalone HSKMoreBalanceEvents mod, which no longer exists.
