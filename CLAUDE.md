@@ -34,13 +34,13 @@ without it, the player faction's tech level is used.
 | `Patch_MechClusterTechGate.cs` | Fails `QuestNode_SpawnMechCluster.TestRunInt` and `QuestNode_CreateIncidents.TestRunInt` (MechCluster incident, hospitality lodger quests) below the threshold |
 | `Patch_QuestFactionTech.cs` | `QuestNode_GetFaction` picks must pass the IiB tech range |
 | `Patch_ShuttleCrashEnemyFaction.cs` | Same for `ShuttleCrash_Rescue`, which picks its enemy in C# |
-| `Patch_RewardWeaponTech.cs` | Quest item rewards only offer weapons one tech level above the player |
+| `Patch_RewardWeaponTech.cs` | Quest item rewards only offer weapons up to one tech level above the player |
 | `Patch_PrisonerCount.cs` | Lodger count by tech level: Neolithic 1-2, Medieval 2-4, Industrial 4-6 |
 | `Patch_RefugeeCount.cs` | Refugees/beggars: colonists / 2, capped by mod settings |
 | `Patch_NoDoubleGuests.cs` | No guest quests while quest lodgers are present |
 | `Patch_NoDoubleMonument.cs` | No second monument quest while one is active |
 | `Patch_WastepackCount.cs` | Fewer wastepacks in `PollutionDump`, by colony tech level |
-| `Patches/Patch_QuestBalance.xml` | Smaller monuments |
+| `Patches/Patch_QuestBalance.xml` | Smaller monuments; monument reward scales from quest points instead of monument resource value |
 | `Patches/Patch_MonumentRewardSimpleMonument.xml` | Only with Simple Monument Quest loaded (declared incompatible in About.xml): the monument quest rewards one log or one mindscrew |
 | `Patches/Patch_QuestEnemyFactions.xml` | Drops `mustBePermanentEnemy` from `QuestNode_GetFaction` in raid/joiner/hospitality quests, so any hostile faction can be the enemy (static XML, not toggled by module settings) |
 

@@ -5,8 +5,8 @@ using Verse;
 
 namespace HSKMoreBalanceQuests;
 
-// Quest item rewards (Reward_Items -> Reward_ItemsStandard) only offer weapons a fixed number of
-// tech level above the player. Player tech comes from Ignorance Is Bliss when installed.
+// Quest item rewards (Reward_Items -> Reward_ItemsStandard) only offer weapons up to a fixed number
+// of tech levels above the player. Player tech comes from Ignorance Is Bliss when installed.
 // The validator is chained onto the params passed to the root thing set maker: ApplyFixedParams
 // only fills null fields, and XML can't set a validator, so it reaches every nested maker
 // (including HSK reward sets). Options with no allowed things fail CanGenerate and another
@@ -37,6 +37,6 @@ public static class Patch_RewardWeaponTech
     {
         if (def == null || !def.IsWeapon || def.techLevel == TechLevel.Undefined)
             return true;
-        return def.techLevel == weaponTech;
+        return def.techLevel <= weaponTech;
     }
 }
