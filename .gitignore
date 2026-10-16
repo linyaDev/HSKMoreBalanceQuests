@@ -1,0 +1,4 @@
+*.pdb
+**/obj/
+Player.log
+Changes.html

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<NeedDef>
+		<defName>Need_Mercy</defName>
+		<label>mercy</label>
+		<needClass>HSKMoreBalanceQuests.Need_Mercy</needClass>
+		<description>How merciful the colony has been toward those who ask for help. Completing quests raises mercy, ignoring them lowers it.</description>
+		<showOnNeedList>true</showOnNeedList>
+		<minIntelligence>Humanlike</minIntelligence>
+		<colonistAndPrisonersOnly>true</colonistAndPrisonersOnly>
+		<showForCaravanMembers>true</showForCaravanMembers>
+		<listPriority>108</listPriority>
+		<fallPerDay>0</fallPerDay>
+	</NeedDef>
+</Defs>

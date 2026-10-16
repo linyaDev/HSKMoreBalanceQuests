@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>HSK More Balance: Quests and Events</name>
+	<author>linyaDev</author>
+	<supportedVersions>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<packageId>linya.hskmorebalance.quests</packageId>
+	<description>
+[English]
+Quest and incident tuning for the Hardcore SK modlist. Both modules can be switched off separately in the mod settings.
+
+Quests:
+- Quests with mechanoids, turrets, condition causers and ancient complexes are not offered below the Industrial tech level (as calculated by Ignorance Is Bliss).
+- Quest factions (raid enemies, site owners, peace talks, shuttle crash attackers) must fit the Ignorance Is Bliss tech range.
+- Site guards and monument punishments never use mechanoids, turrets or condition causers below Industrial.
+- Weapons in quest item rewards are limited to at most one tech level above the player.
+- Lodger count by tech level: Neolithic 1-2, Medieval 2-4, Industrial 4-6. Refugees and beggars are limited by colony size.
+- No duplicate guest or monument quests while one is already running.
+- Fewer wastepacks in the pollution dump quest, scaled by colony tech level.
+
+Incidents:
+- Incidents listed in the settings def are not fired below a minimum player tech level: endless night, ice age, mechanoid terraformer, defoliator and psychic emanator ship crashes.
+- Creepjoiner variants (Anomaly) obey the same kind of gate: the lone genius does not show up below the Industrial level, other variants come instead.
+- Raid Extension surprise events (hostile caravan, lost raider, logging, poaching) pick factions inside the Ignorance Is Bliss tech range, including the case where the faction was set in advance.
+- Hospitality guests: a faction above the player's tech level does not visit, and one far below it does not either. Invitations from the comms console are not limited.
+- The Core_SK enemy ship landing and portal raid pick their faction inside the Ignorance Is Bliss tech range; with no faction in range the event does not fire.
+
+Adds only its own settings defs (Defs/Misc/BalanceSettings.xml and Defs/Misc/EventSettings.xml, all thresholds are editable there; the mod settings window only switches the two modules on and off): safe to add to or remove from an existing save.
+
+[Russian]
+Настройка квестов и событий для сборки Hardcore SK. Оба модуля отключаются по отдельности в настройках мода.
+
+Квесты:
+- Квесты с механоидами, турелями, генераторами условий и древними комплексами не выдаются ниже индустриального техуровня (по расчёту Ignorance Is Bliss).
+- Фракции в квестах (враги рейдов, владельцы площадок, переговоры, нападающие в квесте с шаттлом) должны проходить диапазон техуровня Ignorance Is Bliss.
+- В охране площадок и наказании за разрушение монумента ниже индустриального уровня не бывает механоидов, турелей и генераторов условий.
+- Оружие в предметных наградах — не более чем на один техуровень выше игрока.
+- Число постояльцев по техуровню: неолит 1-2, средневековье 2-4, индустриальный 4-6. Беженцы и попрошайки ограничены размером колонии.
+- Повторные квесты на гостей и монумент не выдаются, пока идёт предыдущий.
+- Меньше мешков отходов в квесте на свалку, с учётом техуровня колонии.
+
+События:
+- События из списка настроек не запускаются ниже заданного техуровня игрока: бесконечная ночь, ледниковый период, терраформер механоидов, падение кораблей-дефолиатора и психоизлучателя.
+- Варианты жуткого присоединившегося (Anomaly) гейтятся так же: одинокий гений не приходит ниже индустриального уровня, вместо него выбираются другие варианты.
+- Внезапные события Raid Extension (враждебный караван, заблудившийся рейдер, лесозаготовка, браконьеры) выбирают фракции внутри диапазона техуровня Ignorance Is Bliss, в том числе когда фракция задана заранее.
+- Гости Hospitality: фракция выше техуровня игрока не приходит, сильно ниже — тоже. Приглашение через консоль связи не ограничивается.
+- Вражеский десант и портальный рейд из Core_SK выбирают фракцию внутри диапазона техуровня Ignorance Is Bliss; если в диапазоне никого нет, событие не запускается.
+
+Из своих дефов только файлы настроек (Defs/Misc/BalanceSettings.xml и Defs/Misc/EventSettings.xml, все пороги правятся там; в окне настроек мода только две галки на модули): мод можно безопасно ставить в текущее сохранение и убирать из него.
+	</description>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+		</li>
+	</modDependencies>
+	<incompatibleWith>
+		<li>ZuoYao.SimpleMonumentQuest</li>
+	</incompatibleWith>
+	<loadAfter>
+		<li>brrainz.harmony</li>
+		<li>Ludeon.RimWorld</li>
+		<li>dame.ignorance</li>
+		<li>Orion.Hospitality</li>
+		<li>sr.modrimworld.raidextension</li>
+		<li>zuoyao.simplemonumentquest</li>
+	</loadAfter>
+</ModMetaData>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Мод Simple Monument Quest (ZuoYao.SimpleMonumentQuest) несовместим с этим модом (About.xml). Если его всё же
+     включили, награда за монумент — одно бревно или один мозгорез (случайно), вместо награды по стоимости.
+     Стоимость награды считается из эскиза монумента, а мод уменьшает работу и охрану, не меняя награду. -->
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Simple Monument Quest</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <success>Always</success>
+      <xpath>Defs/QuestScriptDef[defName="BuildMonumentWorker"]/root/nodes/li[@Class="QuestNode_IsTrue"]/node/nodes/li[@Class="QuestNode_Signal"]/node[@Class="QuestNode_GiveRewards"]</xpath>
+      <value>
+        <node Class="QuestNode_RandomNode">
+          <nodes>
+            <li Class="QuestNode_Sequence">
+              <nodes>
+                <li Class="QuestNode_GenerateThing">
+                  <def>WoodLog</def>
+                  <stackCount>1</stackCount>
+                  <addToList>monumentRewardItems</addToList>
+                </li>
+                <li Class="QuestNode_AddItemsReward">
+                  <items>$monumentRewardItems</items>
+                  <inSignalChoiceUsed>monumentMarker.MonumentCompleted</inSignalChoiceUsed>
+                </li>
+              </nodes>
+            </li>
+            <li Class="QuestNode_Sequence">
+              <nodes>
+                <li Class="QuestNode_GenerateThing">
+                  <def>Mindscrew</def>
+                  <stackCount>1</stackCount>
+                  <addToList>monumentRewardItems</addToList>
+                </li>
+                <li Class="QuestNode_AddItemsReward">
+                  <items>$monumentRewardItems</items>
+                  <inSignalChoiceUsed>monumentMarker.MonumentCompleted</inSignalChoiceUsed>
+                </li>
+              </nodes>
+            </li>
+          </nodes>
+        </node>
+      </value>
+    </match>
+  </Operation>
+</Patch>

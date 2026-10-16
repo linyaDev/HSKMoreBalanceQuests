@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<MercyThought.stages.0.label>бессердечные</MercyThought.stages.0.label>
+	<MercyThought.stages.0.description>Мы проигнорировали столько просьб о помощи. Мы чудовища.</MercyThought.stages.0.description>
+	<MercyThought.stages.1.label>жестокие</MercyThought.stages.1.label>
+	<MercyThought.stages.1.description>Мы продолжаем отворачиваться от нуждающихся. Это гложет меня.</MercyThought.stages.1.description>
+	<MercyThought.stages.2.label>безразличные</MercyThought.stages.2.label>
+	<MercyThought.stages.2.description>Мы редко кому-то помогаем. Неужели мы настолько чёрствые?</MercyThought.stages.2.description>
+	<MercyThought.stages.3.label>равнодушные</MercyThought.stages.3.label>
+	<MercyThought.stages.3.description>Мы могли бы больше помогать другим. Но не делаем этого.</MercyThought.stages.3.description>
+	<MercyThought.stages.4.label>чёрствые</MercyThought.stages.4.label>
+	<MercyThought.stages.4.description>Мы упустили несколько возможностей помочь.</MercyThought.stages.4.description>
+	<MercyThought.stages.5.label>нейтрально</MercyThought.stages.5.label>
+	<MercyThought.stages.5.description>Кому-то помогаем, кого-то игнорируем. Так уж есть.</MercyThought.stages.5.description>
+	<MercyThought.stages.6.label>заботливые</MercyThought.stages.6.label>
+	<MercyThought.stages.6.description>Мы стараемся помогать, когда можем. Это правильно.</MercyThought.stages.6.description>
+	<MercyThought.stages.7.label>сочувствующие</MercyThought.stages.7.label>
+	<MercyThought.stages.7.description>В последнее время мы делаем много хорошего для других.</MercyThought.stages.7.description>
+	<MercyThought.stages.8.label>милосердные</MercyThought.stages.8.label>
+	<MercyThought.stages.8.description>Мы откликаемся почти на каждый зов о помощи. Я горжусь нами.</MercyThought.stages.8.description>
+	<MercyThought.stages.9.label>святые</MercyThought.stages.9.label>
+	<MercyThought.stages.9.description>Мы никогда никому не отказываем. Мы — маяк надежды.</MercyThought.stages.9.description>
+</LanguageData>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<QP_SettingsCategory>HSK Quests and Events</QP_SettingsCategory>
+	<QP_EnableQuestPatches>Quest patches</QP_EnableQuestPatches>
+	<QP_EnableQuestPatchesTooltip>Tech gates for quests and site parts, quest factions, weapon rewards, lodger caps, wastepacks, no duplicate guest and monument quests.
+The wastepack curve fix is applied at startup and needs a restart to change.</QP_EnableQuestPatchesTooltip>
+	<QP_EnableEventPatches>Event patches</QP_EnableEventPatches>
+	<QP_EnableEventPatchesTooltip>Tech gates for incidents and creepjoiner variants, faction filter for Raid Extension surprise events, Hospitality guest filter.</QP_EnableEventPatchesTooltip>
+	<QP_ThresholdsHint>Thresholds and lists (tech levels, lodger caps, wastepack multipliers) are edited in Defs/Misc/BalanceSettings.xml and Defs/Misc/EventSettings.xml.</QP_ThresholdsHint>
+	<QP_GuestsAlreadyPresent>Quest skipped — guests already present in colony.</QP_GuestsAlreadyPresent>
+	<QP_MonumentAlreadyActive>Quest skipped — monument quest already in progress.</QP_MonumentAlreadyActive>
+</LanguageData>
