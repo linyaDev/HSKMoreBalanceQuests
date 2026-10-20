@@ -27,10 +27,7 @@ public static class Patch_WastepackCount
         originalPoints = points;
 
         float multiplier = GetMultiplier(settings);
-        float newPoints = points * multiplier;
-        slate.Set("points", newPoints);
-
-        Log.Message($"[HSKMoreBalanceQuests] Wastepack points: {points:F0} -> {newPoints:F0} (x{multiplier:F3})");
+        slate.Set("points", points * multiplier);
     }
 
     public static void Postfix()
@@ -94,9 +91,6 @@ public static class Patch_WastepackCount
             if (pt.x <= 0f) { hasZero = true; break; }
         }
         if (!hasZero)
-        {
             curve.Add(new CurvePoint(0f, 0f));
-            Log.Message("[HSKMoreBalanceQuests] WastepackCountOverPointsCurve patched: added (0, 0) point");
-        }
     }
 }

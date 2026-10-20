@@ -75,9 +75,7 @@ namespace HSKMoreBalanceQuests.Events
             if (candidates.Count == 0)
                 return; // форс из dev-меню, когда в диапазоне никого: оставляем выбор Core_SK
 
-            var replacement = candidates.RandomElement();
-            Log.Message($"[HSKMoreBalanceQuests] {__instance.GetType().Name}: фракция {faction.Name} [{faction.def.techLevel}] вне диапазона техуровня, заменена на {replacement.Name} [{replacement.def.techLevel}]");
-            faction = replacement;
+            faction = candidates.RandomElement();
         }
 
         // Критерии ChooseFaction из Core_SK плюс диапазон Ignorance Is Bliss.

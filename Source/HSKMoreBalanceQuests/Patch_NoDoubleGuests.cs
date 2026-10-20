@@ -21,7 +21,6 @@ public static class Patch_NoDoubleGuests
         if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
             return true;
 
-        Log.Message("[HSKMoreBalanceQuests] Patch_NoDoubleGuests fired");
         if (!lodgerQuests.Contains(__instance.defName))
             return true;
 
@@ -53,7 +52,6 @@ public static class Patch_NoDoubleGuests_Beggars
         if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
             return true;
 
-        Log.Message("[HSKMoreBalanceQuests] Patch_NoDoubleGuests_Beggars fired");
         if (Patch_NoDoubleGuests.HasLodgersOnAnyMap())
         {
             Messages.Message("QP_GuestsAlreadyPresent".Translate(), MessageTypeDefOf.RejectInput, false);
@@ -72,7 +70,6 @@ public static class Patch_NoDoubleGuests_Refugee
         if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
             return true;
 
-        Log.Message("[HSKMoreBalanceQuests] Patch_NoDoubleGuests_Refugee fired");
         if (Patch_NoDoubleGuests.HasLodgersOnAnyMap())
         {
             Messages.Message("QP_GuestsAlreadyPresent".Translate(), MessageTypeDefOf.RejectInput, false);

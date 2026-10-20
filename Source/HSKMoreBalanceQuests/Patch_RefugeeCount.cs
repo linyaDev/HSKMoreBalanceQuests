@@ -15,7 +15,6 @@ public static class Patch_RefugeeCount
         if (!HSKMoreBalanceQuestsMod.QuestsEnabled)
             return;
 
-        Log.Message("[HSKMoreBalanceQuests] Patch_RefugeeCount fired");
         var settings = BalanceSettingsDef.Values;
         if (!settings.limitRefugees)
             return;
@@ -27,11 +26,6 @@ public static class Patch_RefugeeCount
         int randomOffset = Rand.RangeInclusive(-1, 1);
         int limit = Mathf.Min(colonists / 2 + randomOffset, maxSetting);
         limit = Mathf.Max(limit, 1);
-        int original = __result;
-
         __result = Mathf.Min(__result, limit);
-
-        string questType = isHospitality ? "Helpers" : "Refugees";
-        Log.Message($"[HSKMoreBalanceQuests] {questType}: colonists={colonists}, original={original}, limit={limit}, max={maxSetting}, result={__result}");
     }
 }

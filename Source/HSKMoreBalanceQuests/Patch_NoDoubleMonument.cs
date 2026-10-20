@@ -29,7 +29,6 @@ public static class Patch_NoDoubleMonument
             return true;
 
         Messages.Message("QP_MonumentAlreadyActive".Translate(), MessageTypeDefOf.RejectInput, false);
-        Log.Message($"[HSKMoreBalanceQuests] Monument quest blocked: {__instance.defName} (already active)");
         __result = false;
         return false;
     }

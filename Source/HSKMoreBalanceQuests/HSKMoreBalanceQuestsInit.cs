@@ -14,6 +14,5 @@ public static class HSKMoreBalanceQuestsInit
         // читается здесь, её переключение требует перезапуска игры
         if (HSKMoreBalanceQuestsMod.QuestsEnabled)
             Patch_WastepackCount.PatchCurve();
-        Log.Message("[HSKMoreBalanceQuests] Patches applied.");
     }
 }

@@ -59,8 +59,6 @@ public static class Patch_PrisonerCount
             return;
 
         slate.Set("lodgersCount", count);
-        string kind = isPrisoners ? "Prisoners" : "Joiners";
-        Log.Message($"[HSKMoreBalanceQuests] {kind} count: {original} -> {count} (tech {tech}, range {range.min}-{range.max})");
     }
 }
 
