@@ -7,43 +7,49 @@ using Verse;
 namespace HSKMoreBalanceQuests.Events
 {
     // События Core_SK "вражеский десант" (EnemyShip, IncidentWorker_EnemyShipPart) и
-    // "портальный рейд" (PortalRaid, IncidentWorker_PortalRaid) выбирают фракцию в
-    // одинаковом приватном ChooseFaction: любая враждебная человеческая фракция не ниже
-    // порога (Industrial+ у корабля, Spacer+ у портала), техуровень игрока не
-    // учитывается. Пропускаем выбор через диапазон Ignorance Is Bliss; если в диапазоне
-    // никого нет — событие не запускается.
+    // "портальный рейд" (PortalRaid, IncidentWorker_PortalRaid) выбирают фракцию прямо
+    // в TryExecuteWorker: берут CandidateFactions и отбирают из них любую с техуровнем
+    // не ниже порога (Industrial+ у корабля, Spacer+ у портала) и с боевым pawnGroupMaker;
+    // техуровень игрока не учитывается. Раньше тот же выбор жил в приватном ChooseFaction,
+    // но в Core_SK 1.6.1023 его убрали, поэтому режем список кандидатов там, откуда он
+    // берётся — в FactionCanBeGroupSource у IncidentWorker_RaidEnemy (своего
+    // переопределения у этих двух воркеров нет). Пропускаем кандидатов через диапазон
+    // Ignorance Is Bliss; если в диапазоне никого нет — событие не запускается.
     [StaticConstructorOnStartup]
     public static class CoreSKRaidFactionTechFilter
     {
-        // Тип воркера -> минимальный техуровень фракции из его ChooseFaction.
+        // Тип воркера -> минимальный техуровень фракции из его TryExecuteWorker.
         private static readonly Dictionary<System.Type, TechLevel> workerMinTech = new();
 
         static CoreSKRaidFactionTechFilter()
         {
-            var harmony = new Harmony("linya.hskmorebalancequests.coreskraidfactiontechfilter");
-            TryPatchWorker(harmony, "SK.Events.IncidentWorker_EnemyShipPart", TechLevel.Industrial);
-            TryPatchWorker(harmony, "SK.Events.IncidentWorker_PortalRaid", TechLevel.Spacer);
-            if (workerMinTech.Count > 0)
-                harmony.Patch(AccessTools.Method(typeof(IncidentWorker), "CanFireNow"),
-                    postfix: new HarmonyMethod(typeof(CoreSKRaidFactionTechFilter), nameof(CanFireNowPostfix)));
-        }
-
-        private static void TryPatchWorker(Harmony harmony, string typeName, TechLevel minTech)
-        {
-            var type = AccessTools.TypeByName(typeName);
-            if (type == null)
+            TryRegisterWorker("SK.Events.IncidentWorker_EnemyShipPart", TechLevel.Industrial);
+            TryRegisterWorker("SK.Events.IncidentWorker_PortalRaid", TechLevel.Spacer);
+            if (workerMinTech.Count == 0)
                 return;
 
-            var chooseFaction = AccessTools.DeclaredMethod(type, "ChooseFaction");
-            if (chooseFaction == null)
+            var harmony = new Harmony("linya.hskmorebalancequests.coreskraidfactiontechfilter");
+
+            var groupSource = AccessTools.DeclaredMethod(typeof(IncidentWorker_RaidEnemy),
+                nameof(IncidentWorker_RaidEnemy.FactionCanBeGroupSource));
+            if (groupSource == null)
             {
-                Log.Warning($"[HSKMoreBalanceQuests] CoreSKRaidFactionTechFilter: не найден ChooseFaction у {typeName} — API Core_SK изменилось?");
+                Log.Warning("[HSKMoreBalanceQuests] CoreSKRaidFactionTechFilter: не найден "
+                    + "IncidentWorker_RaidEnemy.FactionCanBeGroupSource — API RimWorld изменилось?");
                 return;
             }
 
-            harmony.Patch(chooseFaction,
-                postfix: new HarmonyMethod(typeof(CoreSKRaidFactionTechFilter), nameof(ChooseFactionPostfix)));
-            workerMinTech[type] = minTech;
+            harmony.Patch(groupSource,
+                postfix: new HarmonyMethod(typeof(CoreSKRaidFactionTechFilter), nameof(FactionSourcePostfix)));
+            harmony.Patch(AccessTools.Method(typeof(IncidentWorker), "CanFireNow"),
+                postfix: new HarmonyMethod(typeof(CoreSKRaidFactionTechFilter), nameof(CanFireNowPostfix)));
+        }
+
+        private static void TryRegisterWorker(string typeName, TechLevel minTech)
+        {
+            var type = AccessTools.TypeByName(typeName);
+            if (type != null)
+                workerMinTech[type] = minTech;
         }
 
         // Рассказчик: если ни одна фракция не проходит диапазон, событие не выпадает вовсе.
@@ -59,26 +65,27 @@ namespace HSKMoreBalanceQuests.Events
                 __result = false;
         }
 
-        // Выбор Core_SK (или его фолбэк на Predators) вне диапазона — перевыбираем.
-        public static void ChooseFactionPostfix(object __instance, ref Faction faction, bool forced)
+        // Кандидат вне диапазона Ignorance Is Bliss — выбрасываем из списка Core_SK.
+        public static void FactionSourcePostfix(IncidentWorker __instance, Faction f, bool desperate, ref bool __result)
         {
-            if (!HSKMoreBalanceQuestsMod.EventsEnabled)
-                return;
-
-            if (faction == null || IgnoranceCompat.FactionIsEligible(faction))
+            if (!__result || !HSKMoreBalanceQuestsMod.EventsEnabled)
                 return;
 
             if (!workerMinTech.TryGetValue(__instance.GetType(), out TechLevel minTech))
                 return;
 
-            var candidates = EligibleFactions(minTech, forced);
-            if (candidates.Count == 0)
-                return; // форс из dev-меню, когда в диапазоне никого: оставляем выбор Core_SK
+            if (IgnoranceCompat.FactionIsEligible(f))
+                return;
 
-            faction = candidates.RandomElement();
+            // Форс из dev-меню, когда в диапазоне никого: не вычищаем список совсем,
+            // иначе Core_SK выберет случайный элемент из пустого и останется без фракции.
+            if (EligibleFactions(minTech, desperate).Count == 0)
+                return;
+
+            __result = false;
         }
 
-        // Критерии ChooseFaction из Core_SK плюс диапазон Ignorance Is Bliss.
+        // Критерии выбора из Core_SK плюс диапазон Ignorance Is Bliss.
         private static List<Faction> EligibleFactions(TechLevel minTech, bool forced)
         {
             var list = new List<Faction>();
